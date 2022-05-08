@@ -1,21 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployment
   labels:
     app: nginx
+    owner: Braulio
+  name: nginx-deployment
 spec:
   replicas: 10
   selector:
     matchLabels:
       app: nginx
+      owner: Braulio
   template:
     metadata:
       labels:
         app: nginx
+        owner: Braulio
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - image: nginx:1.14.2
+        name: nginx
         ports:
         - containerPort: 80
